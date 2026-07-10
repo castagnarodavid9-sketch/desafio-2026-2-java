@@ -3,7 +3,7 @@ CORRESPONDENTE AO EDITAL N. 21/UNOESC-R/2025
 
 Desafio Programador I Unoesc
 
-Este é o nosso desafio para a vaga de programadorna Unoesc. Serão testadas as habilidades e qualidade de código ao transformar requisitos limitados em uma aplicação web.
+Este é o nosso desafio para a vaga de programador na Unoesc. Serão testadas as habilidades e qualidade de código ao transformar requisitos limitados em uma aplicação web.
 
 **FAÇA O FORK DESTE REPOSITÓRIO E IMPLEMENTE O DESAFIO. O MANTENHA PÚBLICO, POIS QUEREMOS ACOMPANHAR SEUS COMMITS**
 

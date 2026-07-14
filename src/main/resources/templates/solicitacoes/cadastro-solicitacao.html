@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Solicitações</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h1>Cadastro de Solicitações</h1>
+        <form action="/solicitacoes/salvar" method="post">
+            <div class="campo">
+                <label for="aluno">Aluno</label>
+                <select id="aluno" name="aluno.id" required>
+                    <option value="">Selecione um aluno</option>
+                    <option th:each="aluno : ${aluno}"
+                            th:value="${aluno.id}"
+                            th:text="${aluno.nome}">
+                    </option>
+                </select>
+            </div>
+            <br>
+            <div class="campo">
+                <label for="curso">Curso</label>
+                <select id="curso" name="curso.id" required>
+                    <option value="">Selecione um curso</option>
+                    <option th:each="curso : ${curso}"
+                            th:value="${curso.id}"
+                            th:text="${curso.nome}">
+                    </option>
+                </select>
+            </div>
+            <br>
+            <div class="campo">
+                <label for="tipoDocumento">Tipo de Documento</label>
+                <select id="tipoDocumento" name="tipoDocumento.id" required>
+                    <option value="">Selecione um documento</option>
+                    <option th:each="tipo : ${tiposDocumento}"
+                            th:value="${tipo.id}"
+                            th:text="${tipo.nome}">
+                    </option>
+                </select>
+            </div>
+            <br>
+            <div class="campo">
+                <label for="prioridade">Prioridade</label>
+                <select id="prioridade" name="prioridade" required>
+                    <option value="">Selecione a prioridade</option>
+                    <option value="URGENTE">Urgente</option>
+                    <option value="ALTA">Alta</option>
+                    <option value="NORMAL">Normal</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="status">Status</label>
+                <select id="status" name="status.id" required>
+                    <option value="">Selecione um status</option>
+                    <option th:each="status : ${status}"
+                            th:value="${status.id}"
+                            th:text="${status.nome}">
+                    </option>
+                </select>
+            </div>
+            <br>
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

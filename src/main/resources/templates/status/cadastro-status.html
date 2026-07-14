@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Status de Documentos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Cadastro de Status</h1>
+    <form action="/status/salvar" method="post">
+        <label for="nome">Descrição : </label>
+        <input type="text" id="nome" name="nome" placeholder="Descrição do status" required>
+        <label for="responsavel">Nome do responsável : </label>
+        <input type="text" id="responsavel" name="responsavel" placeholder="Digite o responsável" required>
+        <button type="submit">Salvar</button>
+    </form>
+</div>
+</body>
+</html>

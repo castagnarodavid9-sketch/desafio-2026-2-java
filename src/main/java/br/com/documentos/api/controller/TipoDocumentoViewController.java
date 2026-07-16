@@ -14,7 +14,7 @@ public class TipoDocumentoViewController {
 
     @GetMapping("/cadastro")
     public String cadastro(){
-        return "tipoDocumento/cadastro-tipoDocumento";
+        return "tipoDocumentos/cadastro-tipoDocumento";
     }
 
     @PostMapping("/salvar")

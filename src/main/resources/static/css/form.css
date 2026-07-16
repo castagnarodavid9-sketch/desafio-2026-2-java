@@ -6,7 +6,7 @@
 }
 
 body{
-    background:#f4f6f9;
+    background:#eef2f7;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -18,26 +18,35 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+    padding:20px;
 }
 
 .card{
-    width:420px;
+    width:450px;
+    max-width:100%;
     background:#fff;
-    padding:35px;
     border-radius:12px;
-    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    padding:35px;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
 }
 
 h1{
     text-align:center;
+    color:#1f3c5b;
+    margin-bottom:10px;
+}
+
+.subtitulo{
+    text-align:center;
+    color:#777;
     margin-bottom:30px;
-    color:#2c3e50;
+    font-size:15px;
 }
 
 form{
     display:flex;
     flex-direction:column;
-    gap:20px;
+    gap:18px;
 }
 
 .campo{
@@ -46,9 +55,9 @@ form{
 }
 
 label{
-    margin-bottom:8px;
     font-weight:bold;
     color:#555;
+    margin-bottom:8px;
 }
 
 input,
@@ -56,7 +65,7 @@ select,
 textarea{
     width:100%;
     padding:12px;
-    border:1px solid #dcdcdc;
+    border:1px solid #d5dbe3;
     border-radius:8px;
     font-size:15px;
     transition:.2s;
@@ -66,17 +75,17 @@ input:focus,
 select:focus,
 textarea:focus{
     outline:none;
-    border-color:#4a90e2;
-    box-shadow:0 0 5px rgba(74,144,226,.3);
+    border-color:#1976d2;
+    box-shadow:0 0 6px rgba(25,118,210,.25);
 }
 
 button{
     margin-top:10px;
-    padding:12px;
-    border:none;
-    border-radius:8px;
     background:#1976d2;
     color:#fff;
+    border:none;
+    border-radius:8px;
+    padding:13px;
     font-size:16px;
     font-weight:bold;
     cursor:pointer;
@@ -85,4 +94,17 @@ button{
 
 button:hover{
     background:#1565c0;
+}
+
+.voltar{
+    display:block;
+    text-align:center;
+    margin-top:18px;
+    color:#1976d2;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.voltar:hover{
+    text-decoration:underline;
 }

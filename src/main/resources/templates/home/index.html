@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Solicitação de Documentos</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="card-home">
+        <h1>Sistema de Solicitação de Documentos Acadêmicos</h1>
+        <p class="subtitulo">
+            Controle de solicitações e histórico de alterações.
+        </p>
+        <div class="menu">
+            <a th:href="@{/alunos/cadastro}">👨 Alunos</a>
+            <a th:href="@{/cursos/cadastro}">🎓 Cursos</a>
+            <a th:href="@{/status/cadastro}">📌 Status</a>
+            <a th:href="@{/tipoDocumento/cadastro}">📄 Documentos</a>
+            <a th:href="@{/solicitacoes/cadastro}">📝 Solicitações</a>
+        </div>
+        <h2>Histórico das Solicitações</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Solicitação</th>
+                <th>Status Anterior</th>
+                <th>Status Novo</th>
+                <th>Responsável</th>
+                <th>Data</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="historico : ${historicos}">
+                <td th:text="${historico.solicitacao.id}"></td>
+                <td th:text="${historico.statusAnterior.nome}"></td>
+                <td th:text="${historico.statusNovo.nome}"></td>
+                <td th:text="${historico.responsavel}"></td>
+                <td th:text="${#dates.format(historico.dataAlteracao,'dd/MM/yyyy HH:mm')}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

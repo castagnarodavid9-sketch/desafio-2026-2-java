@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Status de Documentos</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/form.css">
 </head>
 <body>
 <div class="container">
-    <h1>Cadastro de Status</h1>
-    <form action="/status/salvar" method="post">
-        <label for="nome">Descrição : </label>
-        <input type="text" id="nome" name="nome" placeholder="Descrição do status" required>
-        <label for="responsavel">Nome do responsável : </label>
-        <input type="text" id="responsavel" name="responsavel" placeholder="Digite o responsável" required>
-        <button type="submit">Salvar</button>
-    </form>
+    <div class="card">
+        <p class="subtitulo">
+            Preencha os dados abaixo para cadastrar um novo status para o documento.
+        </p>
+        <h1>Cadastro Status de Documento</h1>
+        <form action="/status/salvar" method="post">
+            <div class="campo">
+                <label for="nome">Descrição : </label>
+                <input type="text" id="nome" name="nome" placeholder="Descrição do status" required>
+            </div>
+            <div class="campo">
+                <label for="responsavel">Nome do responsável : </label>
+                <input type="text" id="responsavel" name="responsavel" placeholder="Digite o responsável" required>
+            </div>
+            <button type="submit">Salvar</button>
+        </form>
+        <a href="/" class="voltar">← Voltar para a página inicial</a>
+    </div>
 </div>
 </body>
 </html>

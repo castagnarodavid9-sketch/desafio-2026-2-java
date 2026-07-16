@@ -1,21 +1,30 @@
-<!-- Exemplo básico de html para uma tela de cadastro -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Alunos</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/form.css">
 </head>
 <body>
 <div class="container">
-    <h1>Cadastro de Alunos</h1>
-    <form action="/alunos/salvar" method="post">
-        <label for="nome">Nome do aluno : </label> <!-- Observe que o nome do campo é o mesmo da entidade que é o mesmo do banco-->
-        <input type="text" id="nome" name="nome" placeholder="Digite o nome" required>
-        <label for="matricula">N° de Matrícula : </label>
-        <input type="text" id="matricula" name="matricula" placeholder="Digite a matrícula" required>
-        <button type="submit">Salvar</button>
-    </form>
+    <div class="card">
+        <h1>Cadastro de Alunos</h1>
+        <p class="subtitulo">
+            Preencha os dados abaixo para cadastrar um novo aluno.
+        </p>
+        <form action="/alunos/salvar" method="post">
+            <div class="campo">
+                <label for="nome">Nome do aluno</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite o nome" required>
+            </div>
+            <div class="campo">
+                <label for="matricula">Nº da Matrícula</label>
+                <input type="text" id="matricula" name="matricula" placeholder="Digite a matrícula" required>
+            </div>
+            <button type="submit">Salvar</button>
+        </form>
+        <a href="/" class="voltar">← Voltar para a página inicial</a>
+    </div>
 </div>
 </body>
 </html>

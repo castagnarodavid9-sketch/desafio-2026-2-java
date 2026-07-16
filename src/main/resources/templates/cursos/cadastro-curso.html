@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Cursos</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/form.css">
 </head>
 <body>
 <div class="container">
-    <h1>Cadastro de Cursos</h1>
-    <form action="/cursos/salvar" method="post">
-        <label for="nome">Nome do curso : </label>
-        <input type="text" id="nome" name="nome" placeholder="Digite o nome do curso" required>
-        <button type="submit">Salvar</button>
-    </form>
+    <div class="card">
+        <h1>Cadastro de Cursos</h1>
+        <p class="subtitulo">Preencha os dados abaixo para cadastrar um novo curso.</p>
+        <form action="/cursos/salvar" method="post">
+            <div class="campo">
+                <label for="nome">Nome do curso</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite o nome do curso" required>
+            </div>
+            <button type="submit">Salvar</button>
+        </form>
+        <a href="/" class="voltar">← Voltar para a página inicial</a>
+    </div>
 </div>
 </body>
 </html>

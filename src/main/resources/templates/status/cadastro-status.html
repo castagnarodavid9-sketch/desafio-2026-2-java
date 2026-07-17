@@ -18,12 +18,20 @@
                 <input type="text" id="nome" name="nome" placeholder="Descrição do status" required>
             </div>
             <div class="campo">
-                <label for="responsavel">Nome do responsável : </label>
-                <input type="text" id="responsavel" name="responsavel" placeholder="Digite o responsável" required>
+                <label for="responsavel">Responsável:</label>
+                <select id="responsavel" name="responsavel" required>
+                    <option value="" selected disabled>Selecione um responsável</option>
+                    <option value="Aluno">Aluno</option>
+                    <option value="Secretaria">Secretaria</option>
+                    <option value="Coordenação">Coordenação</option>
+                    <option value="Professor">Professor</option>
+                    <option value="Direção">Direção</option>
+                </select>
             </div>
             <button type="submit">Salvar</button>
         </form>
         <a href="/" class="voltar">← Voltar para a página inicial</a>
+        <a href="/status/show" class="voltar">← Voltar para a página de status</a>
     </div>
 </div>
 </body>

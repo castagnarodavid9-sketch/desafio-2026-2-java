@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Status Cadastrados</title>
+    <link rel="stylesheet" href="/css/show.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h1>Status</h1>
+        <p class="subtitulo">
+            Clique no botão cadastrar para cadastrar um novo status.
+        </p>
+        <div class="acoes">
+            <a th:href="@{/status/cadastro}" class="botao">+ Novo Status</a>
+        </div>
+        <table class="tabela">
+            <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Responsável</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${#lists.isEmpty(status)}">
+                <td colspan="4" class="sem-registros">Nenhum status encontrado.</td>
+            </tr>
+            <tr th:each="_status : ${status}">
+                <td th:text="${_status.id}"></td>
+                <td th:text="${_status.nome}"></td>
+                <td th:text="${_status.responsavel}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="/" class="voltar">← Voltar para a página inicial</a>
+    </div>
+</div>
+</body>
+</html>

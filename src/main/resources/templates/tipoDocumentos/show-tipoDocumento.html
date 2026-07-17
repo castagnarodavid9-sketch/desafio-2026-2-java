@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentos Cadastrados</title>
+    <link rel="stylesheet" href="/css/show.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h1>Documentos</h1>
+        <p class="subtitulo">
+            Clique no botão cadastrar para cadastrar um novo documento.
+        </p>
+        <div class="acoes">
+            <a th:href="@{/tipoDocumento/cadastro}" class="botao">+ Novo Documento</a>
+        </div>
+        <table class="tabela">
+            <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${#lists.isEmpty(tipoDocumentos)}">
+                <td colspan="4" class="sem-registros">Nenhum documento encontrado.</td>
+            </tr>
+            <tr th:each="tipoDocumento : ${tipoDocumentos}">
+                <td th:text="${tipoDocumento.id}"></td>
+                <td th:text="${tipoDocumento.nome}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="/" class="voltar">← Voltar para a página inicial</a>
+    </div>
+</div>
+</body>
+</html>

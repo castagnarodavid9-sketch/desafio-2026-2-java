@@ -18,13 +18,7 @@ public class SolicitacaoViewController {
     private final TipoDocumentoRepository tipoDocumentoRepository;
     private final StatusRepository statusRepository;
 
-    public SolicitacaoViewController(
-            SolicitacaoRepository solicitacaoRepository,
-            AlunoRepository alunoRepository,
-            CursoRepository cursoRepository,
-            TipoDocumentoRepository tipoDocumentoRepository,
-            StatusRepository statusRepository){
-
+    public SolicitacaoViewController(SolicitacaoRepository solicitacaoRepository, AlunoRepository alunoRepository, CursoRepository cursoRepository, TipoDocumentoRepository tipoDocumentoRepository, StatusRepository statusRepository){
         this.solicitacaoRepository = solicitacaoRepository;
         this.alunoRepository = alunoRepository;
         this.cursoRepository = cursoRepository;
@@ -39,6 +33,16 @@ public class SolicitacaoViewController {
         model.addAttribute("tiposDocumento", tipoDocumentoRepository.findAll());
         model.addAttribute("status", statusRepository.findAll());
         return "solicitacoes/cadastro-solicitacao";
+    }
+
+    @GetMapping("/show")
+    public String show(Model model){
+        model.addAttribute("solicitacao", solicitacaoRepository.findAll());
+        model.addAttribute("aluno", alunoRepository.findAll());
+        model.addAttribute("curso", cursoRepository.findAll());
+        model.addAttribute("tiposDocumento", tipoDocumentoRepository.findAll());
+        model.addAttribute("status", statusRepository.findAll());
+        return "solicitacoes/show-solicitacao";
     }
 
     @PostMapping("/salvar")

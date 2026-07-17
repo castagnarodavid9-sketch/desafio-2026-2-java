@@ -3,6 +3,7 @@ package br.com.documentos.api.controller;
 import br.com.documentos.api.entity.Aluno;
 import br.com.documentos.api.repository.AlunoRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -18,6 +19,12 @@ public class AlunoViewController {
     @GetMapping("/cadastro")
     public String cadastro() {
         return "alunos/cadastro-aluno";
+    }
+
+    @GetMapping("/show")
+    public String show(Model model) {
+        model.addAttribute("alunos", repository.findAll());
+        return "alunos/show-aluno";
     }
 
     // Salva o cadastro com base nos campos populados

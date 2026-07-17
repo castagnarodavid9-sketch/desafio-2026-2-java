@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cursos Cadastrados</title>
+    <link rel="stylesheet" href="/css/show.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h1>Cursos</h1>
+        <p class="subtitulo">
+            Clique no botão cadastrar para cadastrar um novo curso.
+        </p>
+        <div class="acoes">
+            <a th:href="@{/cursos/cadastro}" class="botao">+ Novo Curso</a>
+        </div>
+        <table class="tabela">
+            <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${#lists.isEmpty(cursos)}">
+                <td colspan="4" class="sem-registros">Nenhum curso encontrado.</td>
+            </tr>
+            <tr th:each="curso : ${cursos}">
+                <td th:text="${curso.id}"></td>
+                <td th:text="${curso.nome}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="/" class="voltar">← Voltar para a página inicial</a>
+    </div>
+</div>
+</body>
+</html>

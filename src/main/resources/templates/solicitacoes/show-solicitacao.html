@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitações Cadastradas</title>
+    <link rel="stylesheet" href="/css/show.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h1>Solicitações</h1>
+        <p class="subtitulo">
+            Clique no botão cadastrar para cadastrar uma nova solicitação.
+        </p>
+        <div class="acoes">
+            <a th:href="@{/solicitacoes/cadastro}" class="botao">+ Nova solicitação</a>
+        </div>
+        <table class="tabela">
+            <thead>
+            <tr>
+                <th>Código</th>
+                <th>Aluno</th>
+                <th>Curso</th>
+                <th>Documento</th>
+                <th>Status</th>
+                <th>Dt. Solicitação</th>
+                <th>Prioridade</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${#lists.isEmpty(solicitacao)}">
+                <td colspan="7" class="sem-registros">Nenhuma solicitação encontrada.</td>
+            </tr>
+            <tr th:each="_solicitacao : ${solicitacao}">
+                <td th:text="${_solicitacao.id}"></td>
+                <td th:text="${_solicitacao.aluno.nome}"></td>
+                <td th:text="${_solicitacao.curso.nome}"></td>
+                <td th:text="${_solicitacao.tipoDocumento.nome}"></td>
+                <td th:text="${_solicitacao.status.nome}"></td>
+                <td th:text="${#dates.format(_solicitacao.dataSolicitacao,'dd/MM/yyyy HH:mm')}"></td>
+                <td th:text="${_solicitacao.prioridade}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="/" class="voltar">← Voltar para a página inicial</a>
+    </div>
+</div>
+</body>
+</html>

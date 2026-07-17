@@ -3,6 +3,7 @@ package br.com.documentos.api.controller;
 import br.com.documentos.api.entity.TipoDocumento;
 import br.com.documentos.api.repository.TipoDocumentoRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -10,11 +11,19 @@ import org.springframework.web.bind.annotation.*;
 public class TipoDocumentoViewController {
     private final TipoDocumentoRepository repository;
 
-    public TipoDocumentoViewController(TipoDocumentoRepository repository){ this.repository = repository; }
+    public TipoDocumentoViewController(TipoDocumentoRepository repository){
+        this.repository = repository;
+    }
 
     @GetMapping("/cadastro")
     public String cadastro(){
         return "tipoDocumentos/cadastro-tipoDocumento";
+    }
+
+    @GetMapping("/show")
+    public String show(Model model){
+        model.addAttribute("tipoDocumentos", repository.findAll());
+        return "tipoDocumentos/show-tipoDocumento";
     }
 
     @PostMapping("/salvar")

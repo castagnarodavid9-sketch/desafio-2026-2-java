@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Alunos Cadastrados</title>
+    <link rel="stylesheet" href="/css/show.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h1>Alunos</h1>
+        <p class="subtitulo">
+            Clique no botão cadastrar para cadastrar um novo aluno.
+        </p>
+        <div class="acoes">
+            <a th:href="@{/alunos/cadastro}" class="botao">+ Novo Aluno</a>
+        </div>
+        <table class="tabela">
+            <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Matrícula</th>
+                <th>Situação</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${#lists.isEmpty(alunos)}">
+                <td colspan="4" class="sem-registros">Nenhum aluno encontrado.</td>
+            </tr>
+            <tr th:each="aluno : ${alunos}">
+                <td th:text="${aluno.id}"></td>
+                <td th:text="${aluno.nome}"></td>
+                <td th:text="${aluno.matricula}"></td>
+                <td th:text="${aluno.ativo ? 'Ativo' : 'Inativo'}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="/" class="voltar">← Voltar para a página inicial</a>
+    </div>
+</div>
+</body>
+</html>

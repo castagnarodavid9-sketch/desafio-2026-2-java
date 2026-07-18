@@ -40,25 +40,6 @@
                     </option>
                 </select>
             </div>
-            <div class="campo">
-                <label for="prioridade">Prioridade</label>
-                <select id="prioridade" name="prioridade" required>
-                    <option value="">Selecione a prioridade</option>
-                    <option value="URGENTE">Urgente</option>
-                    <option value="ALTA">Alta</option>
-                    <option value="NORMAL">Normal</option>
-                </select>
-            </div>
-            <div class="campo">
-                <label for="status">Status</label>
-                <select id="status" name="status.id" required>
-                    <option value="">Selecione um status</option>
-                    <option th:each="status : ${status}"
-                            th:value="${status.id}"
-                            th:text="${status.nome}">
-                    </option>
-                </select>
-            </div>
             <br>
             <button type="submit">Salvar</button>
         </form>

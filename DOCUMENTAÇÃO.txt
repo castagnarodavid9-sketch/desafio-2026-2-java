@@ -1,3 +1,6 @@
 Informações de links de Estrutura :
     * Esqueleto banco de dados : https://www.figma.com/board/E50Xm61wkUTTbq7qEjacMD/docs_system_consult?node-id=0-1&p=f&t=TaxZby68I0wuGwdo-0
     * Documentação com estudos e anotações: https://docs.google.com/document/d/1fdfQROEHkstTaH7eqQ37V0_-CRf_AEg0-ZAmDJzpLQ0/edit?usp=sharing
+
+Comandos para rodar :
+    * SQL para criar o banco : CREATE DATABASE docs_system_consult;

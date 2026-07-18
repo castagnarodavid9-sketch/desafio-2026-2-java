@@ -18,22 +18,20 @@
             <a th:href="@{/tipoDocumento/show}">📄 Documentos</a>
             <a th:href="@{/solicitacoes/show}">📝 Solicitações</a>
         </div>
-        <h2>Histórico das Solicitações</h2>
+        <h2>Histórico das Solicitações (Exclusivo Administrador)</h2>
         <table>
             <thead>
             <tr>
                 <th>Solicitação</th>
-                <th>Status Anterior</th>
-                <th>Status Novo</th>
+                <th>Status</th>
                 <th>Responsável</th>
                 <th>Data</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="historico : ${historicos}">
-                <td th:text="${historico.solicitacao.id}"></td>
+                <td th:text="'#' + ${historico.solicitacao.id}"></td>
                 <td th:text="${historico.statusAnterior.nome}"></td>
-                <td th:text="${historico.statusNovo.nome}"></td>
                 <td th:text="${historico.responsavel}"></td>
                 <td th:text="${#dates.format(historico.dataAlteracao,'dd/MM/yyyy HH:mm')}"></td>
             </tr>

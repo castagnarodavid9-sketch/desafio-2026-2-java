@@ -108,3 +108,20 @@ button:hover{
 .voltar:hover{
     text-decoration:underline;
 }
+
+.erro{
+    font-size: 15px;
+    color: red;
+    margin-top: 3px;
+    text-align: center;
+}
+
+.sucesso{
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: #d4edda;
+    color: #155724;
+    text-align: center;
+}

@@ -63,15 +63,42 @@ src
 │   ├── java
 │   │   └── br.com.documentos.api
 │   │       ├── controller
+|   |           ├── AlunoController.java
+|   |           ├── AlunoViewController.java
+|   |           ├──CursoController.java
+|   |           ├──CursoViewController.java
+|   |           ├──HistoricoController.java
+|   |           ├──HomeController.java
+|   |           ├──SolicitacaoController.java
+|   |           ├──SolicitacaoViewController.java
+|   |           ├──StatusController.java
+|   |           ├──StatusViewController.java
+|   |           ├──TipoDocumentoController.java
+|   |           ├──TipoDocumentoViewController.java
 │   │       ├── entity
+|   |           ├──Aluno.java
+|   |           ├──Auditoria.java
+|   |           ├──Curso.java
+|   |           ├──Historico.java
+|   |           ├──Solicitacao.java
+|   |           ├──Status.java
+|   |           ├──TipoDocumento.java
 │   │       ├── repository
 │   │       ├── service
 │   │       └── DocumentosApplication
 │   │
 │   └── resources
 │       ├── static
-│       │   └── css
+│       │   └── style.css
+|           └── form.css
+|           └── show.css
 │       ├── templates
+|           └── alunos
+|           └── cursos
+|           └── home
+|           └── solicitacoes
+|           └── status
+|           └── tipoDocumentos
 │       └── application.properties
 ```
 

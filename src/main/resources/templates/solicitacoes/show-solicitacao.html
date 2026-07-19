@@ -25,11 +25,12 @@
                 <th>Status</th>
                 <th>Dt. Solicitação</th>
                 <th>Prioridade</th>
+                <th>Ações</th>
             </tr>
             </thead>
             <tbody>
             <tr th:if="${#lists.isEmpty(solicitacao)}">
-                <td colspan="7" class="sem-registros">Nenhuma solicitação encontrada.</td>
+                <td colspan="8" class="sem-registros">Nenhuma solicitação encontrada.</td>
             </tr>
             <tr th:each="_solicitacao : ${solicitacao}">
                 <td th:text="${_solicitacao.id}"></td>
@@ -39,6 +40,12 @@
                 <td th:text="${_solicitacao.status.nome}"></td>
                 <td th:text="${#dates.format(_solicitacao.dataSolicitacao,'dd/MM/yyyy HH:mm')}"></td>
                 <td th:text="${_solicitacao.prioridade}"></td>
+                <td>
+                    <a th:href="@{/solicitacoes/editar/{id}(id=${_solicitacao.id})}"
+                       class="botao-editar">
+                        Editar
+                    </a>
+                </td>
             </tr>
             </tbody>
         </table>

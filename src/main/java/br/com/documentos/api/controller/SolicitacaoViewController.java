@@ -4,9 +4,12 @@ import br.com.documentos.api.entity.Solicitacao;
 import br.com.documentos.api.entity.Status;
 import br.com.documentos.api.repository.*;
 import br.com.documentos.api.service.SolicitacaoService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Date;
 
@@ -31,11 +34,13 @@ public class SolicitacaoViewController {
     }
 
     @GetMapping("/cadastro")
-    public String cadastro(Model model){
+    public String cadastro(Model model) {
+        model.addAttribute("solicitacao", new Solicitacao());
         model.addAttribute("aluno", alunoRepository.findAll());
         model.addAttribute("curso", cursoRepository.findAll());
         model.addAttribute("tiposDocumento", tipoDocumentoRepository.findAll());
-        model.addAttribute("status", statusRepository.findAll());
+        model.addAttribute("statuses", statusRepository.findAll());
+
         return "solicitacoes/cadastro-solicitacao";
     }
 
@@ -47,6 +52,26 @@ public class SolicitacaoViewController {
         model.addAttribute("tiposDocumento", tipoDocumentoRepository.findAll());
         model.addAttribute("status", statusRepository.findAll());
         return "solicitacoes/show-solicitacao";
+    }
+
+    @GetMapping("/editar/{id}")
+    public String editar(@PathVariable Integer id, Model model) {
+
+        Solicitacao solicitacao = solicitacaoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Solicitação não encontrada."));
+
+        model.addAttribute("solicitacao", solicitacao);
+        model.addAttribute("aluno", alunoRepository.findAll());
+        model.addAttribute("curso", cursoRepository.findAll());
+        model.addAttribute("tiposDocumento", tipoDocumentoRepository.findAll());
+        model.addAttribute("statuses", statusRepository.findAll());
+
+        return "solicitacoes/cadastro-solicitacao";
+    }
+
+    @PostMapping("/atualizar")
+    public String atualizar(Solicitacao solicitacao) {
+        solicitacaoService.atualizar(solicitacao);
+        return "redirect:/solicitacoes/show";
     }
 
     @PostMapping("/salvar")

@@ -9,8 +9,9 @@
 <div class="container">
     <div class="card">
         <h1>Cadastro de Solicitações</h1>
-        <form action="/solicitacoes/salvar" method="post">
-            <div class="campo">
+        <form th:action="${solicitacao.id != null} ? @{/solicitacoes/atualizar} : @{/solicitacoes/salvar}" th:object="${solicitacao}" method="post">
+            <input type="hidden" th:field="*{id}">
+            <div class="campo" th:if="${solicitacao.id == null}">
                 <label for="aluno">Aluno</label>
                 <select id="aluno" name="aluno.id" required>
                     <option value="">Selecione um aluno</option>
@@ -20,7 +21,7 @@
                     </option>
                 </select>
             </div>
-            <div class="campo">
+            <div class="campo" th:if="${solicitacao.id == null}">
                 <label for="curso">Curso</label>
                 <select id="curso" name="curso.id" required>
                     <option value="">Selecione um curso</option>
@@ -30,7 +31,7 @@
                     </option>
                 </select>
             </div>
-            <div class="campo">
+            <div class="campo" th:if="${solicitacao.id == null}">
                 <label for="tipoDocumento">Tipo de Documento</label>
                 <select id="tipoDocumento" name="tipoDocumento.id" required>
                     <option value="">Selecione um documento</option>
@@ -40,11 +41,20 @@
                     </option>
                 </select>
             </div>
+            <div class="campo" th:if="${solicitacao.id != null}">
+                <label for="status">Status</label>
+                <select th:field="*{status.id}">
+                    <option th:each="status : ${statuses}"
+                            th:value="${status.id}"
+                            th:text="${status.nome}">
+                    </option>
+                </select>
+            </div>
             <br>
             <button type="submit">Salvar</button>
         </form>
         <a href="/" class="voltar">← Voltar para a página inicial</a>
-        <a href="/status/show" class="voltar">← Voltar para a página de solicitações</a>
+        <a href="/solicitacoes/show" class="voltar">← Voltar para a página de solicitações</a>
     </div>
 </div>
 </body>

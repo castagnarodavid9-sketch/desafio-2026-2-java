@@ -7,18 +7,23 @@
 <body>
 <div class="container">
     <div class="card-home">
-        <h1>Sistema de Solicitação de Documentos Acadêmicos</h1>
+        <h1>Sistema de Solicitação de Documentos Acadêmicos (Exclusivo aluno)</h1>
         <p class="subtitulo">
             Controle de solicitações e histórico de alterações.
         </p>
+        <div class="menu">
+            <a th:href="@{/solicitacoes/show}">📝 Solicitações</a>
+        </div>
+        <h2>Gerenciamento e gestão (Exclusivo Administrador)</h2>
         <div class="menu">
             <a th:href="@{/alunos/show}">👨 Alunos</a>
             <a th:href="@{/cursos/show}">🎓 Cursos</a>
             <a th:href="@{/status/show}">📌 Status</a>
             <a th:href="@{/tipoDocumento/show}">📄 Documentos</a>
-            <a th:href="@{/solicitacoes/show}">📝 Solicitações</a>
         </div>
-        <h2>Histórico das Solicitações (Exclusivo Administrador)</h2>
+        <div class="menu">
+            <a th:href="@{/solicitacoes/show}">📝 Visualizar Solicitações</a>
+        </div>
         <table>
             <thead>
             <tr>
@@ -26,6 +31,7 @@
                 <th>Status</th>
                 <th>Responsável</th>
                 <th>Data</th>
+                <th>Data de alteração</th>
             </tr>
             </thead>
             <tbody>
@@ -33,6 +39,7 @@
                 <td th:text="'#' + ${historico.solicitacao.id}"></td>
                 <td th:text="${historico.statusAnterior.nome}"></td>
                 <td th:text="${historico.responsavel}"></td>
+                <td th:text="${#dates.format(historico.dataAlteracao,'dd/MM/yyyy HH:mm')}"></td>
                 <td th:text="${#dates.format(historico.dataAlteracao,'dd/MM/yyyy HH:mm')}"></td>
             </tr>
             </tbody>
